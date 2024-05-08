@@ -19,9 +19,9 @@ public class exercise07 {
         }
 
         System.out.println("Array average: " + media);
-        for(int i = 0; i < array.length; i++){
-            if(array[i] < media){
-                System.out.println("Elements below average: " + array[i]);
+        for (double v : array) {
+            if (v < media) {
+                System.out.println("Elements below average: " + v);
             }
         }
 

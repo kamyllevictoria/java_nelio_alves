@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class program02 {
     public static void main(String[] args) {
-        File file = new File("C:\\temp\\in.txt");
+        File file = new File("C:\\temp\\ola.txt");
         Scanner sc = null;
         try{
             sc = new Scanner(file);
@@ -21,6 +21,7 @@ public class program02 {
             if(sc != null){
                 sc.close();
             }
+            System.out.println("End of application.");
         }
     }
 }

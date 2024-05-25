@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class program05 {
     public static void main(String[] args) {
+
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         List<Employee2> list = new ArrayList<>();
@@ -29,26 +30,30 @@ public class program05 {
             Double salary = sc.nextDouble();
 
             Employee2 emp = new Employee2(id, name, salary);
-
             list.add(emp);
         }
 
         System.out.print("Enter the employee ID that will have salary increase: ");
         int idSalary = sc.nextInt();
 
-        Employee2 emp = list.stream().filter(x -> x.getID() == idSalary).findFirst().orElse(null);
-
-        if(emp == null){
+        Integer pos = position(list, idSalary);
+        if(pos == null){
             System.out.println("ID not found.");
-        } else {
-            System.out.print("Enter the percentage: ");
-            double percentage = sc.nextDouble();
-            emp.increaseSalary(percentage);
         }
+        else{
+            System.out.println("Enter the percentage: ");
+            double percent = sc.nextDouble();
+            list.get(pos).increaseSalary(percent);
+        }
+
+        System.out.println("List of employess: ");
+        for(Employee2 emp: list){
+            System.out.println(emp);
+        }
+
 
         sc.close();
     }
-
     public static Integer position(List<Employee2> list, int id){
         for(int i = 0; i < list.size(); i++){
             if(list.get(i).getID()== id){
@@ -58,8 +63,4 @@ public class program05 {
         return null;
     }
 
-    /*public static boolean hasID(List<Employee2> list, int id){
-        Employee2 emp = list.stream().filter(x -> x.getID() == id).findFirst().orElse(null);
-        return emp != null;
-    }*/
 }

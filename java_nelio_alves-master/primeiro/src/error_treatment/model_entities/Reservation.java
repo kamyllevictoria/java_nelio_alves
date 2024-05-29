@@ -1,5 +1,7 @@
 package error_treatment.model_entities;
 
+import error_treatment.model_exceptions.DomainException;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -9,8 +11,11 @@ public class Reservation {
     private Date checkIn;
     private Date checkOut;
 
-    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    public Reservation(Integer roomNumber, Date checkIn, Date checkOut) {
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    public Reservation(Integer roomNumber, Date checkIn, Date checkOut)  throws DomainException{
+        if(!checkOut.after(checkIn)){
+            throw new DomainException("Check-out must be after check-in date.");
+        }
         this.roomNumber = roomNumber;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
@@ -57,17 +62,20 @@ public class Reservation {
                 + " nigths: ";
     }
 
-    public String updateDates(Date checkIn, Date checkOut) {
-
+    public void updateDates(Date checkIn, Date checkOut) throws DomainException{
         Date now = new Date();
         if(checkIn.before(now) || checkOut.before(now)){
-            return "Reservation dates for update must be future dates.";
+            throw new DomainException("Reservation dates for update must be future dates.");
         }
         if(!checkOut.after(checkIn)){
-           return "Check-out must be after check-in date.";
+            throw new DomainException("Check-out must be after check-in date.");
         }
         this.checkOut = checkOut;
         this.checkIn = checkIn;
-        return null; //criterio para informar que nao ocorreu nenhum erro
+
     }
+
+    //nao vamos tratar essa exceção, pois o nosso metodo updateDates serve para lançar exceções e nao trata-las
+    //logo, usamos o throws DomainException (nossa exceção personalidade) na assinatura do metodo, desta forma
+    //a exceção será tratada no nosso programa principal com o try e catch previamente informados
 }

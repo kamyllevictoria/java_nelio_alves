@@ -12,14 +12,16 @@ public class Reservation {
     private Date checkOut;
 
     private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    public Reservation(Integer roomNumber, Date checkIn, Date checkOut)  throws DomainException{
-        if(!checkOut.after(checkIn)){
+
+    public Reservation(Integer roomNumber, Date checkIn, Date checkOut) throws DomainException {
+        if (!checkOut.after(checkIn)) {
             throw new DomainException("Check-out must be after check-in date.");
         }
         this.roomNumber = roomNumber;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
     }
+
     public Integer getRoomNumber() {
         return roomNumber;
     }
@@ -44,13 +46,13 @@ public class Reservation {
         this.checkOut = checkOut;
     }
 
-    public long duration(){
+    public long duration() {
         long diff = checkOut.getTime() - checkIn.getTime();
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Room number: "
                 + roomNumber
                 + "\nCheckIn: "
@@ -59,20 +61,18 @@ public class Reservation {
                 + sdf.format(checkOut)
                 + "\n"
                 + duration()
-                + " nigths: ";
+                + " nights";
     }
 
-    public void updateDates(Date checkIn, Date checkOut) throws DomainException{
+    public void updateDates(Date checkIn, Date checkOut) throws DomainException {
         Date now = new Date();
-        if(checkIn.before(now) || checkOut.before(now)){
+        if (checkIn.before(now) || checkOut.before(now)) {
             throw new DomainException("Reservation dates for update must be future dates.");
         }
-        if(!checkOut.after(checkIn)){
+        if (!checkOut.after(checkIn)) {
             throw new DomainException("Check-out must be after check-in date.");
         }
         this.checkOut = checkOut;
         this.checkIn = checkIn;
-
     }
-
 }

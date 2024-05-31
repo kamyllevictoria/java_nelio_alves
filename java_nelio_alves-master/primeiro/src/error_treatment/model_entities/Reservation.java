@@ -75,7 +75,4 @@ public class Reservation {
 
     }
 
-    //nao vamos tratar essa exceção, pois o nosso metodo updateDates serve para lançar exceções e nao trata-las
-    //logo, usamos o throws DomainException (nossa exceção personalidade) na assinatura do metodo, desta forma
-    //a exceção será tratada no nosso programa principal com o try e catch previamente informados
 }

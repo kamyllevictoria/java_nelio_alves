@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class Reservation {
-    private Integer roomNumber;
+    private final Integer roomNumber;
     private Date checkIn;
     private Date checkOut;
     private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

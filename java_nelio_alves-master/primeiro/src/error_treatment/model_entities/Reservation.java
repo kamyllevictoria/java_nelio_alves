@@ -11,11 +11,16 @@ public class Reservation {
     private Date checkIn;
     private Date checkOut;
 
+<<<<<<< HEAD
     private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     public Reservation(Integer roomNumber, Date checkIn, Date checkOut)  throws DomainException{
         if(!checkOut.after(checkIn)){
             throw new DomainException("Check-out must be after check-in date.");
         }
+=======
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    public Reservation(Integer roomNumber, Date checkIn, Date checkOut) {
+>>>>>>> 559f346fd1cc2b317827fa176462f3fb5257e6f3
         this.roomNumber = roomNumber;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
@@ -60,6 +65,14 @@ public class Reservation {
                 + "\n"
                 + duration()
                 + " nigths: ";
+<<<<<<< HEAD
+=======
+    }
+
+    public void updateDates(Date checkIn, Date checkOut) {
+        this.checkOut = checkOut;
+        this.checkIn = checkIn;
+>>>>>>> 559f346fd1cc2b317827fa176462f3fb5257e6f3
     }
 
     public void updateDates(Date checkIn, Date checkOut) throws DomainException{

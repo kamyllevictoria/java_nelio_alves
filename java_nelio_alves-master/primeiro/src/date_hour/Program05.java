@@ -7,8 +7,7 @@ import java.util.TimeZone;
 
 public class Program05 {
     public static void main(String[] args) throws ParseException {
-        //um objeto do tipo date não e apenas um valor de armazenamento de data,
-        //ele aculula o numero de milissegundos desde a meia noite do dia 01/01/1970 no CMT
+
         SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         SimpleDateFormat sdf3 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -17,7 +16,8 @@ public class Program05 {
         System.out.println("----------------");
         Date y1 = sdf1.parse("25/06/2018");
         Date y2 = sdf2.parse("25/08/2025 15:41:07");
-
+        System.out.println(y1);
+        System.out.println(y2);
         //formatar com base no nosso simpledateformat personalizado:
         System.out.println(sdf2.format(y2));
 

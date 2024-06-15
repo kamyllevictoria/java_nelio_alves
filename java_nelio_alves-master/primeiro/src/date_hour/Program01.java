@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class program01 {
+public class Program01 {
     public static void main(String[] args) {
         //padrao criado para formatação de datas com o datetimeoformatter
         DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");

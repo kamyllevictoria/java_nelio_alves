@@ -12,16 +12,13 @@ public class Program01{
         BusinessAccount bacc = new BusinessAccount(1002,"Maria", 0.0, 500.0);
 
         //upcasting
-        //subclass to principalclass
-        Account acc1 = bacc; //redundancia mas sem erro
+        Account acc1 = bacc;
         Account acc2 = new BusinessAccount(1003, "lucas",100.0,500.0);
         Account acc3 = new SavingAccount(1004,"Kamylle",100.0, 500.0);
 
         //downcasting
-        //principalclass to subclass
         BusinessAccount acc4 = (BusinessAccount)acc2;
         acc4.loan(100.0);
-
 
          //a variavel acc3 foi instanciada como savingaccount, logo, nao podemos realizar a operação
         if(acc3 instanceof BusinessAccount){
@@ -35,5 +32,7 @@ public class Program01{
             acc5.getBalance();
             System.out.println("Update!");
         }
+
+
     }
 }

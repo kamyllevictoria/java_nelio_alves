@@ -1,4 +1,4 @@
-package inheritance_polymorphism.aplication;
+package inheritance_polymorphism.application;
 
 import inheritance_polymorphism.entities.Account;
 import inheritance_polymorphism.entities.BusinessAccount;

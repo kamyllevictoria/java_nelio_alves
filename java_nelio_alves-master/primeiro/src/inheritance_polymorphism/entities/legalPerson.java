@@ -3,7 +3,8 @@ package inheritance_polymorphism.entities;
 public class legalPerson extends Person{
     private Integer numberOfEmployess;
 
-    public legalPerson(String name, Double annualIncome, Integer numberOfEmployess) {
+
+    public legalPerson(String name, Double annualIncome, Integer numberOfEmployess){
         super(name, annualIncome);
         this.numberOfEmployess = numberOfEmployess;
     }

@@ -1,6 +1,6 @@
 package inheritance_polymorphism.entities;
 
-public class Account {
+public  class Account {
     private Integer number;
     private String holder;
     protected Double balance;

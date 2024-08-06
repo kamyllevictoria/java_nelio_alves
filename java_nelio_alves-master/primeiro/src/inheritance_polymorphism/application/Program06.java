@@ -48,6 +48,18 @@ public class Program06 {
                 list.add(new legalPerson(name, income, employees));
             }
         }
+        System.out.println();
+        System.out.println("TAXES PAID:");
+        for(Person p : list){
+            System.out.println(STR."\{p.getName()}: $ \{String.format("%.2f", p.tax())}");
+        }
+
+        System.out.println();
+        double sum = 0.0;
+        for(Person p : list){
+            sum += p.tax();
+        }
+        System.out.println(STR."TOTAL TAXES: $ \{String.format("%.2f", sum)}");
         sc.close();
     }
 }

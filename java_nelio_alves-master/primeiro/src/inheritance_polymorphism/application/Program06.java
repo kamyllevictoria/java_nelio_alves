@@ -51,7 +51,7 @@ public class Program06 {
         System.out.println();
         System.out.println("TAXES PAID:");
         for(Person p : list){
-            System.out.println(STR."\{p.getName()}: $ \{String.format("%.2f", p.tax())}");
+            System.out.println(p.getName() + ": $" + String.format("%.2f", p.tax()));
         }
 
         System.out.println();
@@ -59,7 +59,7 @@ public class Program06 {
         for(Person p : list){
             sum += p.tax();
         }
-        System.out.println(STR."TOTAL TAXES: $ \{String.format("%.2f", sum)}");
+        System.out.printf("TOTAL TAXES: $%.2f%n", sum);
         sc.close();
     }
 }

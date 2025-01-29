@@ -26,7 +26,7 @@ public class Program {
         LocalDateTime finish = LocalDateTime.parse(sc.nextLine(), fmt);
 
 
-        CarRental cr = new CarRental(start, finish, new Vehicle(carModel));
+        CarRental car = new CarRental(start, finish, new Vehicle(carModel));
 
         sc.close();
     }

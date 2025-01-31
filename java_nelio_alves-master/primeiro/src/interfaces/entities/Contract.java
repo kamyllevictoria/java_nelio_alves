@@ -1,35 +1,53 @@
 package interfaces.entities;
-
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Contract {
-    public int contractNumber;
-    public Date contractDate;
-    public Double contractValue;
-    public int contractInstallment;
+    public Integer number;
+    public Date date;
+    public Double totalValue;
 
+    private List<interfaces.entities.Installment> instalments = new ArrayList<>();
 
-    public Contract(int contractNumber, Date contractDate, Double contractValue, int contractInstallment) {
-        this.contractNumber = contractNumber;
-        this.contractDate = contractDate;
-        this.contractValue = contractValue;
-        this.contractInstallment = contractInstallment;
+    public Contract() {
     }
 
-    public int getContractNumber() {
-        return contractNumber;
+    public Contract(Integer number, Date date, Double totalValue) {
+        this.number = number;
+        this.date = date;
+        this.totalValue = totalValue;
     }
 
-    public Date getContractDate() {
-        return contractDate;
+    public Contract(int contractNumber, LocalDate contractData, double contractValue) {
     }
 
-    public Double getContractValue() {
-        return contractValue;
+    public Integer getNumber() {
+        return number;
     }
 
-    public int getContractInstallment() {
-        return contractInstallment;
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Double getTotalValue() {
+        return totalValue;
+    }
+
+    public void setTotalValue(Double totalValue) {
+        this.totalValue = totalValue;
+    }
+
+    public List<interfaces.entities.Installment> getInstalments() {
+        return instalments;
+    }
 }

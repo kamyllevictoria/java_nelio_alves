@@ -1,6 +1,8 @@
 package interfaces.application;
 
-import interfaces.services.InstallmentCalc;
+import interfaces.entities.Contract;
+import interfaces.entities.Installment;
+import interfaces.services.ContractService;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -10,16 +12,12 @@ import java.util.Calendar;
 
 
 public class Program02 {
-    public static void main(String[] args) {
+    public static <Installment> void main(String[] args) {
         Scanner sc = new Scanner (System.in);
         Locale.setDefault(Locale.US);
 
-        Calendar c = Calendar.getInstance();
-
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
         System.out.println("Enter with contract's data: ");
-
         System.out.println("Number: ");
         int contractNumber = sc.nextInt();
         sc.nextLine();
@@ -30,15 +28,22 @@ public class Program02 {
         System.out.println("Contract value: ");
         double contractValue = sc.nextDouble();
         sc.nextLine();
+        Contract obj = new Contract(contractNumber, contractData, contractValue);
 
         System.out.println("Value of installments: ");
-        int valueInstallments = sc.nextInt();
+        int m = sc.nextInt();
 
-        int month = contractData.getMonthValue();
+
+        ContractService contractService = new ContractService(null);
+        contractService.processContract(obj, m);
 
         System.out.println("Parcelas: ");
-        InstallmentCalc ic = new InstallmentCalc();
-        ic.dueDate(valueInstallments, contractData, contractValue,valueInstallments);
+        for(interfaces.entities.Installment installment : obj.getInstalments()){
+            System.out.println(installment);
+        }
+
+
+
 
         sc.close();
 

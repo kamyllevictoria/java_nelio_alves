@@ -3,6 +3,7 @@ package interfaces.application;
 import interfaces.entities.Contract;
 import interfaces.entities.Installment;
 import interfaces.services.ContractService;
+import interfaces.services.PaypalService;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -34,7 +35,7 @@ public class Program02 {
         int m = sc.nextInt();
 
 
-        ContractService contractService = new ContractService(null);
+        ContractService contractService = new ContractService(new PaypalService());
         contractService.processContract(obj, m);
 
         System.out.println("Parcelas: ");

@@ -14,14 +14,12 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(Integer number, Date date, Double totalValue) {
-        this.number = number;
-        this.date = date;
-        this.totalValue = totalValue;
+    public Contract(int contractNumber, LocalDate contractDate, double contractValue) {
+        this.number = contractNumber;
+        this.date = java.sql.Date.valueOf(contractDate); // Convertendo LocalDate para Date
+        this.totalValue = contractValue;
     }
 
-    public Contract(int contractNumber, LocalDate contractData, double contractValue) {
-    }
 
     public Integer getNumber() {
         return number;
